@@ -1,7 +1,7 @@
 @hostname = http://localhost
 @port = 4000
 @host = {{hostname}}:{{port}}
-@resource = posts
+@resource = users
 
 # Pegar posts
 GET {{host}}/api/{{resource}}
@@ -14,10 +14,9 @@ POST {{host}}/api/{{resource}}
 Content-Type: application/json
 
 {
-    "post": {
-        "title": "How to Program in Erlang",
-        "body": "I teach you how to write better code in Erlang",
-        "user_id": 1
+    "user": {
+        "name": "Igor Melo",
+        "email": "igor@gmail.com"
     }
 }
 
@@ -55,5 +54,5 @@ Content-Type: application/json
 ###
 
 # Delete resource
-DELETE {{host}}/api/{{resource}}/1
+DELETE {{host}}/api/{{resource}}/3
 Content-Type: application/json
