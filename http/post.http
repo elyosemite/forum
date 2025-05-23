@@ -1,0 +1,58 @@
+@hostname = http://localhost
+@port = 4000
+@host = {{hostname}}:{{port}}
+@resource = posts
+
+# Pegar posts
+GET {{host}}/api/{{resource}}
+Content-Type: application/json
+
+###
+
+# Enviar posts
+POST {{host}}/api/{{resource}}
+Content-Type: application/json
+
+{
+    "post": {
+        "title": "My first post2",
+        "body": "let me talk about elixir"
+    }
+}
+
+###
+
+# Pega um post pelo id
+GET {{host}}/api/{{resource}}/1
+Content-Type: application/json
+
+###
+
+# Substituir todo o resource
+PUT {{host}}/api/{{resource}}/3
+Content-Type: application/json
+
+{
+    "post": {
+        "title": "My First Post 3",
+        "body": "Let me talk about Distributed systems with Elixir"
+    }
+}
+
+###
+
+# Editar parte do resource
+PATCH {{host}}/api/{{resource}}/1
+Content-Type: application/json
+
+{
+    "post": {
+        "title": "My First Post 1"
+    }
+}
+
+###
+
+# Delete resource
+DELETE {{host}}/api/{{resource}}/3
+Content-Type: application/json
